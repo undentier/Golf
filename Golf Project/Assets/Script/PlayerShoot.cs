@@ -20,13 +20,28 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            //playerRb.AddForce(Vector3.forward * force);
             aimGraph.SetActive(true);
             AimShoot();
+
+            if (Input.GetAxis("Mouse Y") > 0)
+            {
+                Debug.Log("je rentre");
+                force += 10f;
+            }
+
+            if (Input.GetAxis("Mouse Y") < 0 && force > 0)
+            {
+                force -= 10f;
+            }
         }
         if (Input.GetButtonUp("Fire1"))
         {
             aimGraph.SetActive(false);
+            if (force > 0)
+            {
+                playerRb.AddForce(partToRotate.right * force);
+                force = 0;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
