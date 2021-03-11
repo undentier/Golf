@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public float force;
+    public float power;
+    public float maxPower;
     public Rigidbody playerRb;
     public Transform partToRotate;
     public Transform mainCam;
     public GameObject aimGraph;
 
-    private float mouseCord;
+    public Image fillImage;
 
     private void Start()
     {
@@ -23,32 +25,26 @@ public class PlayerShoot : MonoBehaviour
             aimGraph.SetActive(true);
             AimShoot();
 
-            if (Input.GetAxis("Mouse Y") > 0)
+            if (Input.GetAxis("Mouse Y") > 0 && power < maxPower)
             {
-                Debug.Log("je rentre");
-                force += 10f;
+                power += 30f;
             }
 
-            if (Input.GetAxis("Mouse Y") < 0 && force > 0)
+            if (Input.GetAxis("Mouse Y") < 0 && power > 0)
             {
-                force -= 10f;
+                power -= 30f;
             }
         }
         if (Input.GetButtonUp("Fire1"))
         {
             aimGraph.SetActive(false);
-            if (force > 0)
+            if (power > 0)
             {
-                playerRb.AddForce(partToRotate.right * force);
-                force = 0;
+                playerRb.AddForce(partToRotate.right * power);
+                power = 0;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            playerRb.AddForce(Vector3.up * force / 3f);
-        }
-
+        fillImage.fillAmount = power / maxPower;
     }
 
     void AimShoot()
