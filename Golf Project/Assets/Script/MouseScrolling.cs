@@ -6,15 +6,17 @@ using Cinemachine;
 public class MouseScrolling : MonoBehaviour
 {
     public CinemachineFreeLook playerCam;
-    
-
-    private void Start()
-    {
-        
-    }
-
+   
     void Update()
     {
+        if (Input.GetButton("Fire1"))
+        {
+            playerCam.m_YAxis.m_MaxSpeed = 0f;
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            playerCam.m_YAxis.m_MaxSpeed = 4f;
+        }
 
         Zoom();
     }
