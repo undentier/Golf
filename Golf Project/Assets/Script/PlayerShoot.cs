@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public float power;
+    #region Variable
     public float maxPower;
     public Rigidbody playerRb;
     public Transform partToRotate;
@@ -14,11 +12,32 @@ public class PlayerShoot : MonoBehaviour
 
     public Image fillImage;
 
+    public bool isMoving;
+    private float power;
+    #endregion variable
+
     private void Start()
     {
         aimGraph.SetActive(false);
     }
     void Update()
+    {
+        VelocityDetection();
+
+        if (isMoving == false)
+        {
+            ShootSysteme();
+        }
+
+        fillImage.fillAmount = power / maxPower;
+    }
+
+    void AimShoot()
+    {
+        partToRotate.transform.localEulerAngles = new Vector3(0f, mainCam.localEulerAngles.y, 0f);
+    }
+
+    void ShootSysteme()
     {
         if (Input.GetButton("Fire1"))
         {
@@ -44,11 +63,17 @@ public class PlayerShoot : MonoBehaviour
                 power = 0;
             }
         }
-        fillImage.fillAmount = power / maxPower;
     }
 
-    void AimShoot()
+    void VelocityDetection()
     {
-        partToRotate.transform.localEulerAngles = new Vector3(0f, mainCam.localEulerAngles.y, 0f);
+        if (playerRb.velocity != Vector3.zero)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
     }
 }
