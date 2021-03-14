@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 18910331}
   - component: {fileID: 18910330}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PowerTexte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,6 +298,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2219964125392486491, guid: 3322fdee71cc15148abe618c7d76b89d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f2ddc983ca6ea4fb21179f50c0cd47, type: 2}
+    - target: {fileID: 6607107703260173736, guid: 3322fdee71cc15148abe618c7d76b89d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f2ddc983ca6ea4fb21179f50c0cd47, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3322fdee71cc15148abe618c7d76b89d, type: 3}
 --- !u!1 &150024333
@@ -493,7 +503,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301409638}
-  m_LocalRotation: {x: 0.14991517, y: -0.6910321, z: 0.14991511, w: 0.6910323}
+  m_LocalRotation: {x: 0.14991517, y: -0.6910321, z: 0.14991513, w: 0.69103223}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

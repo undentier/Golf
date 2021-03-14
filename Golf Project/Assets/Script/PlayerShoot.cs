@@ -10,10 +10,15 @@ public class PlayerShoot : MonoBehaviour
     public Transform mainCam;
     public GameObject aimGraph;
 
-    public Image fillImage;
+    [Header ("UI shoot")]
+    public Material material;
+    public Gradient gradient;
 
+    public Image fillImage;
+    [HideInInspector]
     public bool isMoving;
     private float power;
+    
     #endregion variable
 
     private void Start()
@@ -28,6 +33,8 @@ public class PlayerShoot : MonoBehaviour
         {
             ShootSysteme();
         }
+
+        SetColor(power);
 
         fillImage.fillAmount = power / maxPower;
     }
@@ -75,5 +82,10 @@ public class PlayerShoot : MonoBehaviour
         {
             isMoving = false;
         }
+    }
+
+    void SetColor(float power)
+    {
+        material.color = gradient.Evaluate((power / maxPower));
     }
 }
