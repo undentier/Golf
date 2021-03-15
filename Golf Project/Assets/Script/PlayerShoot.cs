@@ -48,7 +48,7 @@ public class PlayerShoot : MonoBehaviour
 
     void ShootSysteme()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Shoot"))
         {
             aimGraph.SetActive(true);
             AimShoot();
@@ -63,7 +63,7 @@ public class PlayerShoot : MonoBehaviour
                 power -= 30f;
             }
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Shoot"))
         {
             aimGraph.SetActive(false);
             if (power > 0)

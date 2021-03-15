@@ -7,11 +7,11 @@ public class MouseScrolling : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Shoot"))
         {
             playerCam.m_YAxis.m_MaxSpeed = 0f;
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Shoot"))
         {
             playerCam.m_YAxis.m_MaxSpeed = 4f;
         }
