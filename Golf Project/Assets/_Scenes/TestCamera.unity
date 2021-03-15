@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 835028613}
   - component: {fileID: 835028612}
   m_Layer: 0
-  m_Name: CM FreeLook1
+  m_Name: PlayerCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

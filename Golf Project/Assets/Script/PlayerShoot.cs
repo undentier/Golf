@@ -13,8 +13,9 @@ public class PlayerShoot : MonoBehaviour
     [Header ("UI shoot")]
     public Material material;
     public Gradient gradient;
-
+    public LineRenderer aimLine;
     public Image fillImage;
+
     [HideInInspector]
     public bool isMoving;
     private float power;
@@ -42,6 +43,7 @@ public class PlayerShoot : MonoBehaviour
     void AimShoot()
     {
         partToRotate.transform.localEulerAngles = new Vector3(0f, mainCam.localEulerAngles.y, 0f);
+        aimLine.SetPosition(0, new Vector3(power / maxPower * 10f, 0f, 0f));
     }
 
     void ShootSysteme()
